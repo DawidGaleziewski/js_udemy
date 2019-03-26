@@ -203,4 +203,36 @@ console.clear();
             console.log(today);
             console.log(typeof today);
 
+console.clear();
+
+// #4 Type Conversion
+let val;
+
+// Number
+val = 5;
+
+    console.log(val);
+    console.log(typeof val);
+    // length only works on strings
+    console.log(val.length);
+
+// Converting number to a string
+val = String(5 + 5);
+
+    console.log(val);
+    console.log(typeof val);
+    console.log(val.length);
+
+// Converting boolean to a string
+val = String(true);
+    console.log(val);
+    console.log(typeof val);
+    console.log(val.length);
+
+// Converting date to a string
+val =  String(new Date());
+    console.log(val);
+    console.log(typeof val);
+    console.log(val.length);
+
 
