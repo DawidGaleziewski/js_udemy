@@ -208,31 +208,99 @@ console.clear();
 // #4 Type Conversion
 let val;
 
-// Number
-val = 5;
+// #Convert to string
+    val = 5;
 
     console.log(val);
     console.log(typeof val);
     // length only works on strings
     console.log(val.length);
 
-// Converting number to a string
-val = String(5 + 5);
 
-    console.log(val);
-    console.log(typeof val);
-    console.log(val.length);
+// We can use String() function to convert other data types to string
+    // Converting number to a string
+    val = String(5 + 5);
 
-// Converting boolean to a string
-val = String(true);
-    console.log(val);
-    console.log(typeof val);
-    console.log(val.length);
+        console.log(val);
+        console.log(typeof val);
+        console.log(val.length);
 
-// Converting date to a string
-val =  String(new Date());
-    console.log(val);
-    console.log(typeof val);
-    console.log(val.length);
+    // Converting boolean to a string
+    val = String(true);
+        console.log(val);
+        console.log(typeof val);
+        console.log(val.length);
+
+    // Converting date to a string
+    val =  String(new Date());
+        console.log(val);
+        console.log(typeof val);
+        console.log(val.length);
+
+    // Converting array to string
+    val = String([1,2,3,4,5,'John']);
+        console.log(val);
+        console.log(typeof val);
+        console.log(val.length);
+
+// We can aslo use toString() method to converte data to string
+    val = (100).toString();
+        console.log(val);
+        console.log(typeof val);
+        console.log(val.length);
+
+console.clear();
+
+// #convert to number
+    // #using Number() function
+            val = Number('5');
+                console.log(val);
+                console.log(typeof val);
+                // toFixed() method works only on numbers
+                console.log(val.toFixed());
+
+        // trying to seet boolean to number
+            val = Number(true);
+                console.log(val); // Gives 1
+
+            val = Number(false);
+                console.log(val); // Gives 0
+
+            val = Number(null);
+                console.log(val); // Gives 0
+
+        // Trying to convert alphabet string to a number
+            val = Number('Howdy');
+                console.log(val); // Gives NaN
+                // When value is tried to get parsed as number but cant it becomes NaN
+                // Not a Number
+
+        // Array
+            val = Number([1,2,3,4]);
+                console.log(val); // Gives NaN
+
+    // #using parseInt() function
+            // It returns only int, it cuts the decimal .30
+            val = parseInt('100.30');
+                console.log(val); //Gives 100
+            
+            val = parseFloat('100.30');
+                console.log(val); //Gives 100.3
+                // we can also make id return 100.30 by using .toFixed
+                console.log(val.toFixed(2));
+console.clear();
+
+// #type coercion - done by JS more implicit
+            const val1 = String(5);
+            // JS will change val2 to a string
+            const val2 = 6;
+            const sum = val1 + val2;
+            console.log(sum); // Gives 56
+            console.log(typeof sum);
+ 
+
+
+
+
 
 
