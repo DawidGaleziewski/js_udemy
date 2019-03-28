@@ -340,6 +340,19 @@ console.clear();
     // return minimum/maximim number
     valNew = Math.max(1,2,3,5,7,1,0,234);
         console.log(valNew);
+    
+    // random method - random decimal
+    valNew = Math.random();
+        console.log(valNew);
+
+        // If we want whole number we can multiply it by max number we want and add 1
+        valNew = Math.random() * 20 + 1;
+            console.log(valNew);
+
+        // round down the number
+        valNew = Math.floor(Math.random() * 20 + 1);
+            console.log(valNew);
+
 
 
 
