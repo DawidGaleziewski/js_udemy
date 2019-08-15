@@ -16,6 +16,9 @@ loadEventListeners();
 
 //### Load all event listeners ###
 function loadEventListeners(){
+  // DOM Load event
+  document.addEventListener('DOMContentLoaded', getTasks)
+
   //Add task event
   form.addEventListener('submit', addTask);
   taskList.addEventListener('click', removeTask);
@@ -49,13 +52,18 @@ function addTask(e){
   // Append finished li to ul
   li.appendChild(link)
 
-  taskList.appendChild(li)
+  taskList.appendChild(li);
+
+  // Store to LocalStorage
+  storeTaskInLocalStorage(taskInput.value);
 
   //Clear the input
   taskInput.value = '';
 
   e.preventDefault();
 }
+
+
 
 // ### DELETE TASKS ###
   // It is best to use event delegation as there are multiple files
@@ -66,6 +74,9 @@ function removeTask(e){
     if(confirm('Are you sure?')){
       //deleting the item
       e.target.parentElement.parentElement.remove()
+
+      // Remove from LS
+      removeTaskFromLocalStorage(e.target.parentElement.parentElement);
     }
     
   }
@@ -82,6 +93,9 @@ function clearTasks(e){
   while(taskList.firstChild){
     taskList.removeChild(taskList.firstChild)
   }
+
+  // Clear from ls
+  clearTasksFromLocalStorage();
 }
 
 
@@ -99,4 +113,82 @@ function filterTasks(e){
     }
   })
   
+}
+
+// ###PERSISIT TO LOCAL STORAGE###
+function storeTaskInLocalStorage(task){
+  let tasks;
+
+  // If we do not have any tasks in localStorage we set up empty array
+  if(localStorage.getItem('tasks') ===null){
+    tasks = [];
+  } else {
+    // If we have some taska we will load them in the variable first
+    tasks = JSON.parse(localStorage.getItem('tasks'))
+  }
+
+  // Add new task to the array
+  tasks.push(task);
+
+  // Store newly created array of tasks in localStorage
+  localStorage.setItem('tasks', JSON.stringify(tasks))
+}
+
+// LOAD ITEMS ON LOAD
+function getTasks(){
+  let tasks;
+  if(localStorage.getItem('tasks') ===null){
+    tasks = [];
+  } else {
+    tasks = JSON.parse(localStorage.getItem('tasks'))
+  }
+
+  tasks.forEach(function(task){
+      //Create li elemtnt
+  const li = document.createElement('li');
+
+    // Add class to the li
+    li.classList = "collection-item";
+
+    //Create text node
+    const textNode = document.createTextNode(task)
+    li.appendChild(textNode);
+
+    // Create new link element
+    const link = document.createElement('a');
+    link.classList ="delete-item secondary-content";
+
+    //add the icon html
+    link.innerHTML = '<i class="fa fa-remove"></i>'
+
+    // Append finished li to ul
+    li.appendChild(link)
+
+    taskList.appendChild(li);
+
+  })
+}
+
+
+// Remove from local storage
+function removeTaskFromLocalStorage(taskItem){
+  let tasks;
+  if(localStorage.getItem('tasks') ===null){
+    tasks = [];
+  } else {
+    tasks = JSON.parse(localStorage.getItem('tasks'))
+  }
+
+  tasks.forEach(function(task, index){
+    if(taskItem.textContent === task){
+      tasks.splice(index, 1);
+    }
+  })
+
+  localStorage.setItem('tasks', JSON.stringify(tasks))
+}
+
+// Clear tasks from ls
+function clearTasksFromLocalStorage(){
+  localStorage.clear();
 }
