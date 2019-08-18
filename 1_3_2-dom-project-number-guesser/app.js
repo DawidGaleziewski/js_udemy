@@ -10,7 +10,7 @@ let min= 1,
 
 // 1. Roll a number between 1-10
 function rollNumber(){
-    return Math.floor(((Math.random() * max) + min))
+    return Math.floor(((Math.random() * (max - min +1)) + min))
 }
 
 console.log(luckyNumber)
@@ -28,6 +28,15 @@ const  UIgame = document.getElementById('game'),
 UIminNum.textContent = min;
 UImaxNum.textContent = max;
 
+//Play again event listener - we need to use event delegation
+UIgame.addEventListener('mousedown', function(e){
+    
+    if(e.target.className === 'play-again'){
+        console.log(e.target)
+        console.log('honk')
+        window.location.reload()
+    }
+})
 
 
 
@@ -80,12 +89,13 @@ function gameOver(msg, won){
     //another way of disabling input
     UIinput.disabled = true;
     //Change border color
-    UIinput.style.borderColor = color
+    UIinput.style.borderColor = color;
     // Inform user he has won
-    setMessage(msg, color)
+    setMessage(msg, color);
+
+    // Play Again
+    UIsubmitBtn.value = 'Play Again';
+    UIsubmitBtn.className += 'play-again';
 }
 
 
-
-// 3. Notify user if it was correct 
-// 4. Add option to try again
