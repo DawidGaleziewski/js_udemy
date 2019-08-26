@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "John Doe",
+        "company": "123 Design",
+        "phone": "333-44-11-112"
+    },
+    {
+        "id": 2,
+        "name": "Sam Smith",
+        "company": "Sigil",
+        "phone": "666-333-222-1"
+    },
+    {
+        "id": 3,
+        "name": "Grace Joy",
+        "company": "Comarh",
+        "phone": "123-1412-56"
+    }
+]
