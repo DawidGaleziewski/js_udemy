@@ -1,0 +1,37 @@
+##API in general
+
+    -Aplication Programming Interface
+    -API  is a contract between two pieces of software
+    -API has structured request/response model
+
+
+#Rest in general
+
+    -Representional State Transfer
+    -Uses stateless Client server protocol - mostly HTTP
+    -Server objects uses as resources - created or destroyed
+
+    -can be used by most programming language
+
+    #API is the messanger and rest allows us to format the message
+    #REST allows us to use HTTP request to format the message
+
+#Types of requests
+    -GET: Retrive data from resource
+    -POST: Submit data to resource
+    -PUT: Update data in resource
+    -DELETE: Delete resource
+
+    #Other
+        -HEAD: Same as get but does not return a body
+        -OPTIONS: Shows supported HTTP methods
+        -PATCH: Update partial resource
+
+
+#API endpoints
+    #example
+        GET https://website.com/api/users     //Get all users
+        GET https://website.com/api/users/1   //Get single users
+        POST https://website.com/api/users    //Add user 
+        PUT https://website.com/api/users/1   //Update user info
+        DELETE https://website.com/api/users  //Delete user
