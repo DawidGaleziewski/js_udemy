@@ -37,16 +37,35 @@
        xhr.send();
     }
 
-
+    //Load customers
     function loadCustomers(){
         const xhr = new XMLHttpRequest();
         xhr.open('GET', 'customers.json', true);
         xhr.onload = function(){
             if(this.status === 200){
                 //console.log(this.responseText)
-                const customers = JSON.parse(this.responseText)
+                const customers = JSON.parse(this.responseText);
 
-                //Continue here
+                let finalHTML = '';
+
+
+                customers.forEach(function(customer){
+                    
+                    //Create template for customer in html
+                    const output = `
+                    <ul>
+                    <li>ID: ${customer.id}</li>
+                    <li>NAME: ${customer.name}</li>
+                    <li>COMPANY: ${customer.company}</li>
+                    <li>PHONE: ${customer.phone}</li>
+                    </ul>
+                    `
+                    finalHTML += output;
+
+                })
+
+                //Add template to DOM
+                document.getElementById('customers').innerHTML = finalHTML
             }
         }
 
