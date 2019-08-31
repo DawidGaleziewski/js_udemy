@@ -1,3 +1,9 @@
+// Things I did not know before:
+    //setTimeout for waiting before continuing program
+    // isFinite method
+    //Cool way of showing error for a moment
+    // cool way of using gif for loading
+
 // Listen for submit
 const form = document.getElementById('loan-form');
 
