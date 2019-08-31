@@ -1,0 +1,14 @@
+[
+    {
+        "title": "Post one from json file",
+        "body": "Post one body from json file"
+    },
+    {
+        "title": "Post two from json file",
+        "body": "Post two body from json file"
+    },
+    {
+        "title": "Post three from json file",
+        "body": "Post three body from json file"
+    }
+]
