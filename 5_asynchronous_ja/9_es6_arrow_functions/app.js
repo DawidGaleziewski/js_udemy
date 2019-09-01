@@ -19,3 +19,14 @@ const sayHello2 = ()=> 'hello';
 //Single param does not need parenthesis
 const sayHello4 = name => console.log(`Hello ${name}`)
 
+
+//More than one params require parenthesies
+const sayHello5 = (firstName, lastName) => console.log(`Helo there ${firstName}  ${lastName}`);
+
+
+const users = ['Nathan', 'John', 'William'];
+
+//Arrow functions are great as callbacks
+const nameLengths = users.map(user=>  user.length);
+
+console.log(nameLengths)
