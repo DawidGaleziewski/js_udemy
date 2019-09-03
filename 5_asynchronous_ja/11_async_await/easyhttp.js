@@ -1,5 +1,5 @@
-//ES6
-//Version using promises 
+//ES7
+//Version using ASYNC and AWAIT 
     //Using modern standards
 
 /** 
